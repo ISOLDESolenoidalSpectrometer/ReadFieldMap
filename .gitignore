@@ -1,0 +1,5 @@
+*.pdf
+*dSYM
+.DS_Store
+*root
+*txt
