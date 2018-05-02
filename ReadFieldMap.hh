@@ -308,12 +308,15 @@ TVector3 GetBvector( string filename, int _probeID, float &_temperature ) {
 	
 }
 
-void RotateVector( float _phi, bool zflag, TVector3 &_vec ) {
+void RotateVector( int _probeID, float _phi, bool zflag, TVector3 &_vec ) {
 	
 	_vec.RotateZ( _phi * TMath::DegToRad() ); // rotate the bar in phi
 	
 	if( zflag )
 		_vec.RotateX( TMath::Pi() ); // x is horizontal axis, flip the bar!
+	
+	if( _probeID == 136 )
+		_vec.RotateZ( TMath::Pi() ); // probe was upside down
 	
 	return;
 	
