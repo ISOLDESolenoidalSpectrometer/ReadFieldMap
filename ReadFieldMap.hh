@@ -269,7 +269,7 @@ TVector3 GetBvector( string filename, int _probeID, float &_temperature ) {
 				ss.clear();
 				ss << line;
 				ss >> date >> time >> id_tmp;
-				ss >> Bx_tmp >> By_tmp >> Bz_tmp >> T_tmp;
+				ss >> Bz_tmp >> Bx_tmp >> By_tmp >> T_tmp;
 				
 				if( ( _probeID > 0 && id_tmp == _probeID ) ||
 				    ( _probeID < 0 && id_tmp == _probeID * -1 ) ) {
@@ -305,5 +305,16 @@ TVector3 GetBvector( string filename, int _probeID, float &_temperature ) {
 	_temperature = _T / (float)Nmeasure;
 	
 	return TVector3::TVector3( _Bx, _By, _Bz );
+	
+}
+
+void RotateVector( float _phi, bool zflag, TVector3 &_vec ) {
+	
+	_vec.RotateZ( _phi * TMath::DegToRad() ); // rotate the bar in phi
+	
+	if( zflag )
+		_vec.RotateX( TMath::Pi() ); // x is horizontal axis, flip the bar!
+	
+	return;
 	
 }
