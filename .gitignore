@@ -1,5 +1,5 @@
 *.pdf
-*dSYM
+*dSYM/
 .DS_Store
 *root
 *txt

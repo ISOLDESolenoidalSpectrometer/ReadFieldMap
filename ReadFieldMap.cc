@@ -18,7 +18,7 @@ int main( int argc, char* argv[] ) {
 						"Read the field mapping data from ISS" );
 		
 		options.add_options()
-		( "d,data_dir", "Path to data directory", cxxopts::value<string>(), "/path/to/data/dir" )
+		( "d,data_dir", "Path to data directory", cxxopts::value<string>(), "/path/to/data" )
 		( "z,z_shift", "shifted in z" )
 		( "p,phi_shift", "shifted in phi" )
 		( "x,ext_offset", "Offset of the extension in mm", cxxopts::value<float>(), "offset" )
