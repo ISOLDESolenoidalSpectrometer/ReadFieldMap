@@ -143,7 +143,7 @@ float GetRealZ( int _z, bool zflag ) {
 	
 }
 
-float GetRealR( int _probeID ) {
+float GetRealR( int _probeID, bool zflag ) {
 	
 	bool flag;
 	float _r;
@@ -160,7 +160,13 @@ float GetRealR( int _probeID ) {
 		
 	}
 	
-	if( flag ) return _r;
+	if( flag ) {
+		
+		if( zflag ) return -1.0 * _r; // flip the bar!
+		else return _r;
+	
+	}
+	
 	else {
 		
 		cerr << "Couldn't find probe " << _probeID << endl;
@@ -169,21 +175,27 @@ float GetRealR( int _probeID ) {
 	}
 }
 
-float GetRealPhi( int phi, bool phiflag ) {
+float GetRealPhi( int _phi, bool phiflag ) {
+	
+	float phi;
 	
 	// Normal phi configuration
 	if( !phiflag ) {
 		
-		return ( phi - 5 ) * 5.0; // degrees from horizontal
+		phi = ( _phi - 5 ) * 5.0; // degrees from horizontal
 		
 	}
 	
 	// Shifted-phi configuration
 	else {
 		
-		return ( phi - 5 ) * 5.0 - 2.5; // degrees from horizontal
+		phi = ( _phi - 5 ) * 5.0 - 2.5; // degrees from horizontal
 		
 	}
+	
+	if( phi < 0.0 ) phi += 360.;
+	
+	return phi;
 	
 }
 
@@ -312,8 +324,12 @@ void RotateVector( int _probeID, float _phi, bool zflag, TVector3 &_vec ) {
 	
 	_vec.RotateZ( -1.0 * _phi * TMath::DegToRad() ); // rotate the probe axis in phi
 	
-	if( zflag )
-		_vec.RotateX( TMath::Pi() ); // x is horizontal axis, flip the bar!
+	if( zflag ) {
+
+		_vec.RotateX( TMath::Pi() ); // flip the bar!
+		_vec.RotateY( TMath::Pi() ); // flip the bar!
+	
+	}
 	
 	if( _probeID == 139 )
 		_vec.RotateZ( TMath::Pi() ); // probe was upside down

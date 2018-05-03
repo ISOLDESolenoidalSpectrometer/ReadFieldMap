@@ -120,7 +120,7 @@ int main( int argc, char* argv[] ) {
 		
 		for( unsigned int j = 0; j < Nprobes; j++ ) {
 			
-			r_real = GetRealR( probeIDs.at(j) );
+			r_real = GetRealR( probeIDs.at(j), shifted_z );
 			phi_real = GetRealPhi( phi_frame, shifted_phi );
 			x_real = GetRealX( r_real, phi_real );
 			y_real = GetRealY( r_real, phi_real );
