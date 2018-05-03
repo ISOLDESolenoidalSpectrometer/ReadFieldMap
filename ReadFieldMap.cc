@@ -126,7 +126,7 @@ int main( int argc, char* argv[] ) {
 			y_real = GetRealY( r_real, phi_real );
 			
 			Bvec = GetBvector( files.at(i), probeIDs.at(j), temperature );
-			RotateVector( probeIDs.at(i), phi_real, shifted_z, Bvec );
+			RotateVector( probeIDs.at(j), phi_real, shifted_z, Bvec );
 			
 			Bx = Bvec.X();
 			By = Bvec.Y();

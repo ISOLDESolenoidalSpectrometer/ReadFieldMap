@@ -1,5 +1,6 @@
 *.pdf
 *dSYM/
+*xcworkspace/
 .DS_Store
 *root
 *txt
