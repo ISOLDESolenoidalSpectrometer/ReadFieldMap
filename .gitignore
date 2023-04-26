@@ -1,7 +1,7 @@
-*.pdf
-*dSYM/
-*xcworkspace/
+*~
+*/*~
+*.o
+*.pcm
+*.xcworkspace
 .DS_Store
-*root
-*txt
-ReadFieldMap
+*/.DS_Store
