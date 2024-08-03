@@ -151,7 +151,7 @@ float GetRealR( int _probeID, bool zflag ) {
 	for( unsigned int i = 0; i < probes.size(); i++ ) {
 		
 		if( ( _probeID > 0 && _probeID == probes.at(i) ) ||
-		    ( _probeID < 0 && _probeID == (i+1) * -1 ) ) {
+		    ( _probeID < 0 && _probeID == (int) (i+1) * -1 ) ) {
 			
 			_r = rvec.at(i);
 			flag = true;
