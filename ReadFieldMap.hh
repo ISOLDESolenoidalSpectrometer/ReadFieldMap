@@ -145,7 +145,7 @@ float GetRealZ( int _z, bool zflag ) {
 
 float GetRealR( int _probeID, bool zflag ) {
 	
-	bool flag;
+	bool flag = false;
 	float _r;
 	
 	for( unsigned int i = 0; i < probes.size(); i++ ) {
