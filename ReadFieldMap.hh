@@ -316,7 +316,7 @@ TVector3 GetBvector( string filename, int _probeID, float &_temperature ) {
 	_Bz /= (float)Nmeasure;
 	_temperature = _T / (float)Nmeasure;
 	
-	return TVector3::TVector3( _Bx, _By, _Bz );
+	return TVector3( _Bx, _By, _Bz );
 	
 }
 
