@@ -145,13 +145,13 @@ float GetRealZ( int _z, bool zflag ) {
 
 float GetRealR( int _probeID, bool zflag ) {
 	
-	bool flag;
+	bool flag = false;
 	float _r;
 	
 	for( unsigned int i = 0; i < probes.size(); i++ ) {
 		
 		if( ( _probeID > 0 && _probeID == probes.at(i) ) ||
-		    ( _probeID < 0 && _probeID == (i+1) * -1 ) ) {
+		    ( _probeID < 0 && _probeID == (int) (i+1) * -1 ) ) {
 			
 			_r = rvec.at(i);
 			flag = true;
@@ -316,7 +316,7 @@ TVector3 GetBvector( string filename, int _probeID, float &_temperature ) {
 	_Bz /= (float)Nmeasure;
 	_temperature = _T / (float)Nmeasure;
 	
-	return TVector3::TVector3( _Bx, _By, _Bz );
+	return TVector3( _Bx, _By, _Bz );
 	
 }
 
